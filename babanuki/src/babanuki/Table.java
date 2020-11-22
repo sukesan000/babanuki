@@ -9,7 +9,7 @@ public class Table {
 	//カードを捨てる
 	public void disposeCard(Card card[]) {
 		for(int index = 0; index < card.length; index++) {
-			System.out.println(card[index] + " ");
+			System.out.print(card[index] + " ");
 		}
 		System.out.println("を捨てました");
 		

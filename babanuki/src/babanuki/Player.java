@@ -32,7 +32,7 @@ public class Player {
 			master_.declearWin(this);
 		}else {
 			//現在の手札を表示する
-			System.out.println(this + ":残りの手札は"　+ myHand_ + "です");
+			System.out.println(this + ":残りの手札は" + myHand_ + "です");
 		}
 	}
 	//手札を見せる
@@ -49,6 +49,11 @@ public class Player {
 	//カードを受け取る
 	//card 受け取ったカード
 	public void receiveCard(Card card) {
+		//引いたカードを自分の手札にくわえ、同じカードがあったら捨てる
+		dealCard(card);
+	}
+	
+	public void dealCard(Card card) {
 		//カードを自分の手札に加える
 		myHand_.addCard(card);
 		//今加えたカードと同じカードを探す
@@ -60,6 +65,7 @@ public class Player {
 			table_.disposeCard(sameCards);
 		}
 	}
+	
 	//プレイヤーの名前を返す
 	public String toString() {
 		return name_;
