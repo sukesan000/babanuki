@@ -33,7 +33,7 @@ public class Master {
 		//プレイヤーの人数を取得する
 		for(int count = 0; players_.size() > 1; count++) {
 			int playerIndex = count % players_.size();
-			int nextPlayer = (count + 1) % players_.size();
+			int nextPlayerIndex = (count + 1) % players_.size();
 			
 			//指名するプレイヤーの取得
 			Player player = (Player) players_.get(playerIndex);
@@ -63,12 +63,12 @@ public class Master {
 			Player loser = (Player) players_.get(0);
 			System.out.println(loser + "さんの負けです");
 		}
+	}
 		
-		//ゲームに参加するプレイヤーを登録する
-		//player 参加するプレイヤー
-		public void registerPlayer(Player player)){
-			//リストに参加者を追加する
-			players_.add(player);
-		}
+	//ゲームに参加するプレイヤーを登録する
+	//player 参加するプレイヤー
+	public void registerPlayer(Player player){
+		//リストに参加者を追加する
+		players_.add(player);
 	}
 }

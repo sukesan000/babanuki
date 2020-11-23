@@ -1,17 +1,15 @@
 package babanuki;
 
-import sun.tools.tree.ThisExpression;
-
 public class Player {
-	private Master masetr_;
+	private Master master_;
 	private Table table_;
-	private Hand myHand_;
+	private Hand myHand_ = new Hand();
 	private String name_;
 	
 	//コンストラクタ
 	public Player(String name, Master master, Table table) {
 		this.name_ = name;
-		this.masetr_ = master;
+		this.master_ = master;
 		this.table_ = table;
 	}
 	
@@ -29,7 +27,7 @@ public class Player {
 		//手札がゼロになったかどうか調べる
 		if(myHand_.getNumberofCards() == 0) {
 			//進行役に上がりを宣言する
-			master_.declearWin(this);
+			master_.declareWin(this);
 		}else {
 			//現在の手札を表示する
 			System.out.println(this + ":残りの手札は" + myHand_ + "です");
@@ -39,7 +37,7 @@ public class Player {
 	public Hand showHand() {
 		//もしこの時点で手札が残り一枚ならば上がりとなるので宣言する
 		if(myHand_.getNumberofCards() == 1) {
-			master_.deckareWin(this);
+			master_.declareWin(this);
 		}
 		//見せる前にシャッフルする
 		myHand_.shuffle();
@@ -53,7 +51,7 @@ public class Player {
 		dealCard(card);
 	}
 	
-	public void dealCard(Card card) {
+	private void dealCard(Card card) {
 		//カードを自分の手札に加える
 		myHand_.addCard(card);
 		//今加えたカードと同じカードを探す
